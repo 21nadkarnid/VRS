@@ -23,13 +23,11 @@ public class House{
     le = c - 64;
   }
   public int distanceTo(House a){
-    int b;
+    int b = 200*Math.abs(this.getSt()-a.getSt());
     if(this.isSouthOf(a)){
-      b = 200*Math.abs(this.getSt()-a.getSt());
-      b+= 1000*(a.getAv()-this.getAv())+100*(a.getLe()-this.getLe());
+      b += 1000*(a.getAv()-this.getAv())+100*(a.getLe()-this.getLe());
     }else{
-      b = 200*Math.abs(this.getSt()-a.getSt());
-      b+= 1000*(this.getAv()-a.getAv())+100*(this.getLe()-a.getLe());
+      b += 1000*(this.getAv()-a.getAv())+100*(this.getLe()-a.getLe());
     }
     return b;
   }
