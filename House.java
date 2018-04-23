@@ -34,12 +34,13 @@ public class House{
     return b;
   }
   public boolean isSouthOf(House a){
-    if(a.getAv()>this.getAv())
-    return true;
-    else if(a.getAv() == this.getAv() && a.getLe()>this.getLe())
-    return true;
-    else
-    return false;
+    if(a.getAv()>this.getAv()) {
+      return true;
+    } else if(a.getAv() == this.getAv() && a.getLe()>this.getLe()){
+      return true;
+    } else {
+      return false;
+    }
   }
   public int getAv(){
     return av;
