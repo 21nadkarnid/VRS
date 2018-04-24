@@ -1,2 +1,5 @@
-public class Neighbor { 
+public class Neighbor {
+  public HouseManager NN {
+    
+  }
 }
