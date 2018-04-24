@@ -1,5 +1,5 @@
 public class Neighbor {
-  public HouseManager NN {
-    
+  public HouseManager NN(HouseManager path) {
+    House 
   }
 }
