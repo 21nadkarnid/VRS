@@ -1,5 +1,5 @@
 public class Neighbor {
   public HouseManager NN(HouseManager path) {
-    House 
+    House home = new House(125, 22, a);
   }
 }
