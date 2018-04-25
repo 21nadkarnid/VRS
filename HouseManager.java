@@ -1,19 +1,22 @@
 import java.util.ArrayList;
 public class HouseManager{//distribution center is first, also assuming at most one complex
   private ArrayList<House> houses = new ArrayList<House>();
-  private int packages;
-  private int employees;
+  private int packages = 0;
+  private int employees = 1;
   private House complex;
-  public HouseManager(ArrayList<House> h, House c, int p, int e){
+  public HouseManager(ArrayList<House> h, House c, int p){
     complex = c;
     houses = h;
     packages = p;
     employees = e;
   }
-  public HouseManager(ArrayList<House> h, int p, int e){
+  public HouseManager(ArrayList<House> h){
     houses = h;
     packages = p;
     employees = e;
+  }
+  public void setE(int i){
+    employees = i;
   }
   public ArrayList<House> getList(){
     return houses;
@@ -21,7 +24,7 @@ public class HouseManager{//distribution center is first, also assuming at most 
   public int totDistance(){
     int previous = houses.size()-1;
     int tot;
-    if(packages - 100 < houses.size()){//first house is center
+    if(packages < 101){//first house is center
       for(int i = 0; i < houses.size(); i++){
         tot+= houses.get(previous).distanceTo(houses.get(i));
         previous = i;
