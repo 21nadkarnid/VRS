@@ -39,8 +39,9 @@ public class HouseManager{//distribution center is first, also assuming at most 
     return tot;
   }
   //not including methods to calculate cost because that is easier in the algorithm - more accurate maintainance
-  public int time(){
-    int t = totDistance()/1000*30;//seconds
-    t += 60/employees*packages;
+  public double time(){
+    double t = totDistance()/1000.0*30.0;//seconds
+    t += 60.0/employees*(packages+houses.size()-1);
+    return t/3600;
   }
 }
