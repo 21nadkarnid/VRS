@@ -8,12 +8,11 @@ public class HouseManager{//distribution center is first, also assuming at most 
     complex = c;
     houses = h;
     packages = p;
-    employees = e;
   }
   public HouseManager(ArrayList<House> h){
     houses = h;
-    packages = p;
-    employees = e;
+  }
+  public HouseManager(){
   }
   public void setE(int i){
     employees = i;
