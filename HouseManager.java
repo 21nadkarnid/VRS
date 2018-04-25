@@ -22,7 +22,7 @@ public class HouseManager{//distribution center is first, also assuming at most 
   }
   public int totDistance(){
     int previous = houses.size()-1;
-    int tot;
+    int tot = 0;
     if(packages < 101){//first house is center
       for(int i = 0; i < houses.size(); i++){
         tot+= houses.get(previous).distanceTo(houses.get(i));
