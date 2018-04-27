@@ -43,4 +43,12 @@ public class HouseManager{//distribution center is first, also assuming at most 
     t += 60.0/employees*(packages+houses.size()-1);
     return t/3600;
   }
+  public void switch(int a, int b){
+      House place = houses.get(a);
+      House place1 = houses.get(b);
+      houses.remove(a);
+      houses.add(a, place1);
+      houses.remove(b);
+      houses.add(b, place);
+  }
 }
