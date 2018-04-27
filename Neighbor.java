@@ -16,7 +16,8 @@ public class Neighbor {
           currentBest = j;
         }
       }
-      path.add(list.getList().get(j));
+      current = list.getList().get(j);
+      path.add(current);
       delivered[j] = true;
     }
     return new HouseManager(path);
