@@ -51,4 +51,18 @@ public class HouseManager{//distribution center is first, also assuming at most 
       houses.remove(b);
       houses.add(b, place);
   }
+  public int switchD(int a, int b){
+      House place = houses.get(a);
+      House place1 = houses.get(b);
+      houses.remove(a);
+      houses.add(a, place1);
+      houses.remove(b);
+      houses.add(b, place);
+      int ans = this.totDistance();
+      houses.remove(a);
+      houses.add(a, place);
+      houses.remove(b);
+      houses.add(b, place1);
+      return ans;
+  }
 }
