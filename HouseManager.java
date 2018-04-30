@@ -1,13 +1,17 @@
 import java.util.ArrayList;
 public class HouseManager{//distribution center is first, also assuming at most one complex
   private ArrayList<House> houses = new ArrayList<House>();
-  private int packages = 0;
+  private int bp = 0;
+  private int lp = 0;
   private int employees = 1;
-  private House complex;
-  public HouseManager(ArrayList<House> h, House c, int p){
-    complex = c;
+  private House bart;
+  private House lisa;
+  public HouseManager(ArrayList<House> h, House b, int p, House l, int q){
+    bart = c;
+    bp = p;
+    lisa = l;
+    lp = q;
     houses = h;
-    packages = p;
   }
   public HouseManager(ArrayList<House> h){
     houses = h;
@@ -20,20 +24,19 @@ public class HouseManager{//distribution center is first, also assuming at most 
   public ArrayList<House> getList(){
     return houses;
   }
+  //create addBart, addLisa method bart.distanceTo(bart+1+a) + bart.distanceTo(bart+2+a)
   public int totDistance(){
     int previous = houses.size()-1;
     int tot = 0;
-    if(packages < 101){//first house is center
-      for(int i = 0; i < houses.size(); i++){
-        tot+= houses.get(previous).distanceTo(houses.get(i));
-        previous = i;
-      }
-    }else{
-      for(int i = 0; i < houses.size(); i++){
-        tot+= houses.get(previous).distanceTo(houses.get(i));
-        previous = i;
-      }
-      tot+= houses.get(0).distanceTo(complex)*2;
+    for(int i = 0; i < houses.size(); i++){
+      tot+= houses.get(previous).distanceTo(houses.get(i));
+      previous = i;
+    }
+    if(bp > 100){
+      tot+= houses.get(0).distanceTo(bart)*2;//edit
+    }
+    if(lp > 100){
+      tot+= houses.get(0).distanceTo(lisa)*2;//edit
     }
     return tot;
   }
