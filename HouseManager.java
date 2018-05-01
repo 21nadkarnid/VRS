@@ -25,14 +25,17 @@ public class HouseManager{//distribution center is first, also assuming at most 
     return houses;
   }
   public int addBart(int a){
-    return bart.distanceTo(houses.get(bart()+1+a*2)) + bart.distanceTo(houses.get(bart()+2+a*2)) - houses.get(bart()+1+a*2).distanceTo(houeses.get(bart()+2+a*2));
+    return bart.distanceTo(houses.get(findH(bart)+1+a*2)) + bart.distanceTo(houses.get(findH(bart)+2+a*2)) - houses.get(findH(bart)+1+a*2).distanceTo(houeses.get(findH(bart)+2+a*2));
   }
   public int addLisa(int a){
-    return lisa.distanceTo(houses.get(lisa()+1+a*2)) + lisa.distanceTo(houses.get(lisa()+2+a*2)) - houses.get(lisa()+1+a*2).distanceTo(houeses.get(lisa()+2+a*2));
+    return lisa.distanceTo(houses.get(findH(lisa)+1+a*2)) + lisa.distanceTo(houses.get(findH(lisa)+2+a*2)) - houses.get(findH(lisa)+1+a*2).distanceTo(houeses.get(findH(lisa)+2+a*2));
   }
-  public int lisa(){
-  }
-  public int bart(){
+  public int findH(House a){
+    for(int i = 0; i < houses.size(); i++){
+      if(a.equals(houses.get(i))
+         return i;
+    }
+    return -1;
   }
   public int totDistance(){
     int previous = houses.size()-1;
@@ -42,10 +45,10 @@ public class HouseManager{//distribution center is first, also assuming at most 
       previous = i;
     }
     if(bp > 100){
-      tot+= houses.get(0).distanceTo(bart)*2;//edit
+      tot+= addBart(0);
     }
     if(lp > 100){
-      tot+= houses.get(0).distanceTo(lisa)*2;//edit
+      tot+= addLisa(0);
     }
     return tot;
   }
