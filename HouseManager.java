@@ -1,11 +1,29 @@
 import java.util.ArrayList;
-public class HouseManager{//distribution center is first, also assuming at most one complex
+import java.util.Scanner;
+import java.io.File;
+public class HouseManager throws Exception{//distribution center is first, also assuming at most one complex
   private ArrayList<House> houses = new ArrayList<House>();
   private int bp = 0;
   private int lp = 0;
   private int employees = 1;
   private House bart;
   private House lisa;
+  public HouseManager(File f){
+    Scanner s = new Scanner(f);
+    String current = "";
+    String previous = "";
+    while(s.hasNextLine()){
+      current = s.next();
+      if(current.contains(','){
+        houses.add(new House(current));
+      }else if(previous.contains('B')){
+        bp = Integer.parseInt(current);
+      }else if(previous.contains('L')){
+        lp = Integer.parseInt(current);
+      }
+      previous = current;
+    }
+  }      
   public HouseManager(ArrayList<House> h, House b, int p, House l, int q){
     bart = c;
     bp = p;
@@ -44,11 +62,17 @@ public class HouseManager{//distribution center is first, also assuming at most 
       tot+= houses.get(previous).distanceTo(houses.get(i));
       previous = i;
     }
-    if(bp > 100){
-      tot+= addBart(0);
+    int btp = 0;
+    while(bp > 100){
+      tot+= addBart(btp);
+      btp++;
+      bp-=100;
     }
-    if(lp > 100){
-      tot+= addLisa(0);
+    int ltp = 0;
+    while(lp > 100){
+      tot+= addLisa(ltp);
+      ltp++;
+      lp-=100;
     }
     return tot;
   }
