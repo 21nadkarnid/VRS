@@ -53,7 +53,7 @@ public class House{
   public int getLe(){
     return le;
   }
-  public boolean equals(House a){
+  @Override public boolean equals(House a){
     if(a.getAv() == this.getAv() && a.getSt() == this.getSt() && a.getLe() == this.getLe())
       return true;
     return false;
