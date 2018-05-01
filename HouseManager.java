@@ -24,7 +24,16 @@ public class HouseManager{//distribution center is first, also assuming at most 
   public ArrayList<House> getList(){
     return houses;
   }
-  //create addBart, addLisa method bart.distanceTo(bart+1+a) + bart.distanceTo(bart+2+a)
+  public int addBart(int a){
+    return bart.distanceTo(houses.get(bart()+1+a*2)) + bart.distanceTo(houses.get(bart()+2+a*2)) - houses.get(bart()+1+a*2).distanceTo(houeses.get(bart()+2+a*2));
+  }
+  public int addLisa(int a){
+    return lisa.distanceTo(houses.get(lisa()+1+a*2)) + lisa.distanceTo(houses.get(lisa()+2+a*2)) - houses.get(lisa()+1+a*2).distanceTo(houeses.get(lisa()+2+a*2));
+  }
+  public int lisa(){
+  }
+  public int bart(){
+  }
   public int totDistance(){
     int previous = houses.size()-1;
     int tot = 0;
