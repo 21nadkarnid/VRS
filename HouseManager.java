@@ -5,7 +5,6 @@ public class HouseManager{
   private ArrayList<House> houses = new ArrayList<House>();
   private int bp = 0;
   private int lp = 0;
-  private int employees = 1;
   private House bart;
   private House lisa;
   public HouseManager(File f) throws Exception{
@@ -23,21 +22,9 @@ public class HouseManager{
       }
       previous = current;
     }
-  }      
-  public HouseManager(ArrayList<House> h, House b, int p, House l, int q){
-    bart = b;
-    bp = p;
-    lisa = l;
-    lp = q;
-    houses = h;
   }
   public HouseManager(ArrayList<House> h){
     houses = h;
-  }
-  public HouseManager(){
-  }
-  public void setE(int i){
-    employees = i;
   }
   public ArrayList<House> getList(){
     return houses;
@@ -81,11 +68,11 @@ public class HouseManager{
     return tot;
   }
   //not including methods to calculate cost because that is easier in the algorithm - more accurate maintainance
-  public double time(){
+  /*public double time(){
     double t = totDistance()/1000.0*30.0;//seconds
     t += 60.0/employees*(bp+lp+houses.size()-3);
     return t/3600;
-  }
+  }*/
   public void switchF(int a, int b){
     House place = houses.get(a);
     House place1 = houses.get(b);
