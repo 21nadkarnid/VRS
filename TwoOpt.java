@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-
 public class TwoOpt {
   public HouseManager TO (HouseManager input) {
-   HouseManager path = TwoOpt.NN(input);
+   HouseManager path = this.NN(input);
    boolean done = false;
    while (!done) {
      done = true;
@@ -17,11 +16,11 @@ public class TwoOpt {
          }
        }
      }
-     path.switch(j, i);
+     path.switchF(best[0], best[1]);
    }
    return path;
   }
-  public HouseManager NN(HouseManager list, House complex) {
+  public HouseManager NN(HouseManager list) {
     House home = new House(125, 22, 'a');
     House current = home;
     ArrayList<House> path = new ArrayList<House>();
@@ -42,5 +41,4 @@ public class TwoOpt {
     }
     return new HouseManager(path);
   }
-
 }
